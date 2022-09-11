@@ -1,0 +1,21 @@
+*,
+*::before,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Ubuntu, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+  color: #2b2b2b;
+}
+
+body {
+  font-size: 1.6rem;
+}
