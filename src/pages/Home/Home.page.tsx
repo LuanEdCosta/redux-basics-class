@@ -1,3 +1,4 @@
+import { UserData } from "src/components";
 import { User } from "src/types";
 
 import classes from "./Home.module.scss";
@@ -10,17 +11,7 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ user, handleLogout }) => {
   return (
     <div className={classes.container}>
-      <div>
-        <strong>Name:</strong>
-        &nbsp;
-        <span>{user.name}</span>
-      </div>
-
-      <div>
-        <strong>Email:</strong>
-        &nbsp;
-        <span>{user.email}</span>
-      </div>
+      <UserData user={user} />
 
       <button className={classes.button} onClick={handleLogout}>
         Logout
