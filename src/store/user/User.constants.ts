@@ -1,0 +1,4 @@
+export enum USER_ACTION_TYPES {
+  LOGIN = "@USER/LOGIN",
+  LOGOUT = "@USER/LOGOUT",
+}

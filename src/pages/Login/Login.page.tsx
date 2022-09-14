@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-import { User } from "src/types";
+import { UserActions } from "src/store/user";
 
 import classes from "./Login.module.scss";
 
-interface LoginPageProps {
-  handleLogin: (user: User) => void;
-}
+export const LoginPage: React.FC = () => {
+  const dispatch = useDispatch();
 
-export const LoginPage: React.FC<LoginPageProps> = ({ handleLogin }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -19,10 +18,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ handleLogin }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (handleValidate()) {
-      handleLogin({
-        name: name.trim(),
-        email: email.trim(),
-      });
+      dispatch(
+        UserActions.login({
+          name: name.trim(),
+          email: email.trim(),
+        })
+      );
     }
   };
 

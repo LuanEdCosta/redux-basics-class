@@ -1,26 +1,17 @@
-import { useState } from "react";
+import { Provider } from "react-redux";
 
-import { User } from "src/types";
+import { Store } from "src/store";
 import { AppRoutes } from "src/routes";
 
 import classes from "./App.module.scss";
 
 export const App: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  const handleLogout = () => {
-    setUser(null);
-  };
-
   return (
-    <div className={classes.container}>
-      <h1 className={classes.title}>Redux Basics</h1>
-
-      <AppRoutes
-        user={user}
-        handleLogin={setUser}
-        handleLogout={handleLogout}
-      />
-    </div>
+    <Provider store={Store}>
+      <div className={classes.container}>
+        <h1 className={classes.title}>Redux Basics</h1>
+        <AppRoutes />
+      </div>
+    </Provider>
   );
 };

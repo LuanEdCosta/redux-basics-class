@@ -1,14 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import { UserData } from "src/components";
-import { User } from "src/types";
+import { UserActions, UserSelectors } from "src/store/user";
 
 import classes from "./Home.module.scss";
 
-interface HomePageProps {
-  user: User;
-  handleLogout: () => void;
-}
+export const HomePage: React.FC = () => {
+  const dispatch = useDispatch();
 
-export const HomePage: React.FC<HomePageProps> = ({ user, handleLogout }) => {
+  const user = useSelector(UserSelectors.getUser);
+
+  const handleLogout = () => {
+    dispatch(UserActions.logout());
+  };
+
   return (
     <div className={classes.container}>
       <UserData user={user} />
