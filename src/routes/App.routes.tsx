@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { UserSelectors } from "src/store/user";
 
+import { UserSelectors } from "src/store/user";
 import { HomePage, LoginPage } from "src/pages";
 
 export const AppRoutes: React.FC = () => {
